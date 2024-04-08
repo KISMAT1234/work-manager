@@ -9,5 +9,6 @@ export default async function About (){
    await takeTime()
     return(<>
       <h1>This is about page</h1>
+      <p>Here contains website information </p>
     </>)
 }
