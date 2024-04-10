@@ -4,3 +4,4 @@ export default function AdminProfile (){
       <h1>This is page is access by admin only</h1>
     </>)
 }
+
