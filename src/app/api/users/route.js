@@ -12,3 +12,7 @@ export function GET(request){
 export function POST(request){
     return NextResponse.json(req);
 }
+
+export function DELETE(request){
+    console.log("User deleted")
+}
