@@ -1,5 +1,10 @@
 import { NextResponse } from "next/server";
 
+
+export function POST(request){
+
+}
+
 export function DELETE(request, {params}){
     // console.log(params);
     const user = params.userId;
