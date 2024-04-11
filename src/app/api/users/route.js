@@ -9,8 +9,12 @@ export function GET(request){
     return NextResponse.json(users);
 }
 
-export function POST(request){
-    return NextResponse.json(req);
+export async function POST(request){
+    const value = await request.json();
+    console.log(value);
+     return NextResponse.json({
+        message:"user created"
+    })
 }
 
 export function DELETE(request){
