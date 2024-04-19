@@ -3,14 +3,19 @@ import { User } from "@/models/user";
 import { NextResponse } from "next/server";
 
 connectDb()
-export function GET(request){
-
-    const users = [{
-        name:'kismat bohora',
-        "age":20,
-    }];
+export async  function GET(request){
+  try{
+     let user = await User.find();
+     return NextResponse.json(user);
+  } catch(err){
+     console.log(err);
+  }
     return NextResponse.json(users);
 }
+
+
+
+
 
 export async function POST(request){
     try{
