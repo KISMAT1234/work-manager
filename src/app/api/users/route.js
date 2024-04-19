@@ -13,7 +13,15 @@ export async  function GET(request){
     return NextResponse.json(users);
 }
 
+export async function GET(request, {params}){
+    try{
+        const {userId} = params
 
+        const user = await User.findById(userId)
+
+        return NextResponse.json(user);
+    }
+}
 
 
 
