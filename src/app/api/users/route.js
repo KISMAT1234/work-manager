@@ -43,6 +43,22 @@ export async function POST(request){
    }
 }
 
-export function DELETE(request){
-    console.log("User deleted")
+export function DELETE(request, {params}){
+    try{
+        const {userId} = params;
+        const user = User.deleteOne({_id: userId});
+        return NextResponse.json({
+            message: "User deleted successfully",
+            status: true,
+        })
+    }
+
+    catch(err){
+        console.log(err);
+        return NextResponse.json({
+            message: "Failed to delete user",
+            status: false,
+        })
+    }
+
 }
