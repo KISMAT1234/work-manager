@@ -51,6 +51,32 @@ export async function POST(request){
    }
 }
 
+
+export async function PUT(request, {params}){
+    try{
+        const {userId} = params;
+        const {name, email, password, about, profileURL} = await request.json();
+        const user = await User.findByIdAndUpdate(userId, {
+            name, 
+            email, 
+            password, 
+            about, 
+            profileURL
+        })
+        return NextResponse.json({
+            message: "User updated successfully",
+            status: true,
+        })
+    }
+    catch(err){
+        return NextResponse.json({
+            message: "Failed to update user",
+            status: true,
+        })
+    }
+}
+
+
 export function DELETE(request, {params}){
     try{
         const {userId} = params;
