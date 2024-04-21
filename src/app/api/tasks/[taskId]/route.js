@@ -22,14 +22,38 @@ export async function GET(request, {params}){
     }
 }
 
-export async function POST(){
+export async function PUT(request, {params}){
+   try{
+    const {taskId} = params;
+    const {title, content, userId} = await request.json();
+    let  task = await Task.findById(taskId);
 
+    task.title = title,
+    task.content = content
+
+    const updatedTask = await task.save();
+    return NextResponse.json(updatedTask, {
+        status: 201,
+    });
+   }
+   catch(err){
+    console.log(err)
+   }
 }
 
-export async function PUT(){
 
-}
 
-export async function DELETE(){
+export async function DELETE(request, {params}){
+    try{
+       const {taskId} = params;
+       await Task.deleteOne({_id:taskId});
+       return NextResponse.json({
+        message: "Task deleted successfully!!",
+        success:true,
+       })
+    }
+    catch(err){
+        console.log(err);
 
+    }
 }
