@@ -2,15 +2,20 @@
 import { Task } from "@/models/task";
 import { NextResponse } from "next/server";
 import { connectDb } from "@/helper/db";
+import { getResponseMessage } from "@/helper/responseMessage";
 
 connectDb();
 
 export async function GET(request){
      try{
-       
+       const tasks = await Task.find();
+       return NextResponse.json(tasks, {
+        status: 200,
+       });
      }
      catch(err){
-
+       console.log(err);
+       return getResponseMessage("Error in getting data !!",404, false);
      }
 }
 
