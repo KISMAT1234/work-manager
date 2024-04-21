@@ -1,6 +1,9 @@
 // import { Task } from "@/models/task";
 import { Task } from "@/models/task";
 import { NextResponse } from "next/server";
+import { connectDb } from "@/helper/db";
+
+connectDb();
 
 export async function GET(request){
      try{
