@@ -6,6 +6,7 @@ connectDb()
 export async  function GET(request){
   try{
      let user = await User.find();
+    //  console.log(user);
      return NextResponse.json(user);
   } catch(err){
      console.log(err);
