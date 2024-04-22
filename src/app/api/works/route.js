@@ -5,3 +5,12 @@ export function GET(request){
         message:"Hello kismat",
     })
 }
+
+export function POST(request){
+    try{
+
+    }
+    catch(err){
+        console.log(err);
+    }
+}
