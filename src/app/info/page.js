@@ -1,4 +1,6 @@
+"use client"
 export default function Info(){
+  console.log("this is component")
     return <>
       <div>
         <h1>This is info component</h1>
